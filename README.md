@@ -1,4 +1,4 @@
 # js-fetch-promise-image-loading
 
-a demonstration of how to dynamically load images from a folder on a webpage using javascript.
+a quick demonstration of how to dynamically display images from a folder (on your local machine) on a webpage using the power of javascript.
 More details to follow
