@@ -9,7 +9,7 @@ const imgBtn = document.querySelector(".btn");
 // Finding the number of images in a folder the hard way
 
 function getImages(num, count) {
-  fetch(`/img/img-${num}.jpg`)
+  fetch(`/img/img-${num}.png`)
     .then((res) => {
       if (res.ok) {
         console.log(`The number of images is ${count}`);
@@ -18,7 +18,7 @@ function getImages(num, count) {
 
         // Generate random number and display an image
         // const randomNum = Math.trunc(Math.random() * arr.length + 1);
-        // image.src = `/img/img-${randomNum}.jpg`;
+        // image.src = `/img/img-${randomNum}.png`;
         // console.log(randomNum);
 
         console.log(res);
@@ -38,7 +38,7 @@ for (let i = 1; i < 7; i++) {
 
 function loadImage() {
   imgIndex++;
-  image.src = `/img/img-${imgIndex}.jpg`;
+  image.src = `/img/img-${imgIndex}.png`;
 
   console.log(arr, imgIndex);
   if (imgIndex === arr.length) {
