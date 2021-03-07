@@ -9,7 +9,7 @@ const imgTxt = document.getElementById("img-text");
 // Find the number of images in a folder the hard way, assuming that we do not know ahead of time
 // Name your images like img-1.png, img-2.png etc...
 
-// Use the fetch API to make http request to the browser, returns a promise that can be fulfilled or rejected
+// Use the fetch API to make http request to the server, returns a promise that can be fulfilled or rejected
 function getImages(num, count) {
   fetch(`/img/img-${num}.png`)
     .then((res) => {
