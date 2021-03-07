@@ -1,13 +1,15 @@
 "use strict";
 
-// Select image, button element
+// Select elements to use later: image, button, and image text to display
 
 const image = document.querySelector(".images");
 const imgBtn = document.querySelector(".btn");
-//console.log(image);
+const imgTxt = document.getElementById("img-text");
 
-// Finding the number of images in a folder the hard way
+// Find the number of images in a folder the hard way, assuming that we do not know ahead of time
+// Name your images like img-1.png, img-2.png etc...
 
+// Use the fetch API to make http request to the browser, returns a promise that can be fulfilled or rejected
 function getImages(num, count) {
   fetch(`/img/img-${num}.png`)
     .then((res) => {
@@ -15,15 +17,11 @@ function getImages(num, count) {
         console.log(`The number of images is ${count}`);
         arr.push(count);
         console.log(arr.length);
-
-        // Generate random number and display an image
-        // const randomNum = Math.trunc(Math.random() * arr.length + 1);
-        // image.src = `/img/img-${randomNum}.png`;
-        // console.log(randomNum);
-
         console.log(res);
-        //image.src = `/img/img-${count}.jpg`;
-      } else throw new Error("Error encountered");
+
+        // Display the number of images in the folder in a paragraph
+        imgTxt.innerHTML = `There are ${count} images in the folder`;
+      } else throw new Error("There was a problem with getting the image");
     })
     .catch((err) => console.log(err));
 }
@@ -31,7 +29,10 @@ function getImages(num, count) {
 let imgIndex = 1;
 let arr = [];
 let count = 1;
-for (let i = 1; i < 7; i++) {
+
+// i < 10 below is arbitrary, assumes that we have less than 10 images in the folder
+
+for (let i = 1; i < 10; i++) {
   getImages(i, count);
   count++;
 }
@@ -46,5 +47,5 @@ function loadImage() {
   }
 }
 
-// use eventListener
+// use eventListener to load the image when the use clicks button
 imgBtn.addEventListener("click", loadImage);
